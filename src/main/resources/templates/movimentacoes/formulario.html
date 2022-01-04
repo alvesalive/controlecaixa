@@ -21,10 +21,14 @@
   <form action="#" th:action="@{/movimentacoes/salvar}" th:object="${movimentacao}" method="POST">
     <input type="hidden" id="id" th:field="*{id}">
 
-    <!-- <span th:if="${#fields.hasErrors('nome')}" th:errors="*{name}" class="text-danger"></span> -->
+
     <input type="text" th:field="*{descricao}" placeholder="Descricao" class="form-control mb-4 col-4">
     <input type="date" th:field="*{data}" placeholder="Data" class="form-control mb-4 col-4">
+
+    <span th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}" class="text-danger"></span>
     <input type="text" th:field="*{tipo}" placeholder="Tipo" class="form-control mb-4 col-4">
+
+    <span th:if="${#fields.hasErrors('valor')}" th:errors="*{valor}" class="text-danger"></span>
     <input type="text" th:field="*{valor}" placeholder="Valor" class="form-control mb-4 col-4">
 
 

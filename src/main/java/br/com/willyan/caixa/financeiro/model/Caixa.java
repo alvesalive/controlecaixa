@@ -7,7 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
+
 
 @Entity
 @Getter
@@ -17,8 +21,11 @@ public class Caixa {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-
+    @NotBlank(message = "Descrição não pode ser vazia")
     private String descricao;
+
+    @NotNull(message = "Deve inserir um valor")
+    @Min(0)
     private Double saldoInicial;
 
     protected Caixa(){}

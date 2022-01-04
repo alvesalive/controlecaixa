@@ -21,8 +21,10 @@
   <form action="#" th:action="@{/caixas/salvar}" th:object="${caixa}" method="POST">
     <input type="hidden" id="id" th:field="*{id}">
 
-    <!-- <span th:if="${#fields.hasErrors('nome')}" th:errors="*{name}" class="text-danger"></span> -->
+    <span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}" class="text-danger"></span>
     <input type="text" th:field="*{descricao}" placeholder="Descrição" class="form-control mb-4 col-4">
+
+    <span th:if="${#fields.hasErrors('saldoInicial')}" th:errors="*{saldoInicial}" class="text-danger"></span>
     <input type="number" th:field="*{saldoInicial}" placeholder="Saldo Inicial" class="form-control mb-4 col-4">
 
 
