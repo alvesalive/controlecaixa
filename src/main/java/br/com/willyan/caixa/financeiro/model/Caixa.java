@@ -1,4 +1,4 @@
-package br.com.willyan.caixa.financeiro.domain;
+package br.com.willyan.caixa.financeiro.model;
 
 import lombok.Getter;
 import lombok.Setter;
