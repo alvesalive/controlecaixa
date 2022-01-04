@@ -36,7 +36,7 @@ public class MovimentacaoController {
         if (movimentacaoOptional.isEmpty()){
             throw new IllegalArgumentException("movimentação inválida.");
         }
-        model.addAttribute("movimentacao", movimentacaoOptional.get(); )
+        model.addAttribute("movimentacao", movimentacaoOptional.get());
         return "movimentacoes/formulario";
     }
 
