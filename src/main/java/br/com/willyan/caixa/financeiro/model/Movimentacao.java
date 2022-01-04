@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -31,6 +28,11 @@ public class Movimentacao {
 
     private String descricao;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "caixa_id")
+    private Caixa caixa;
+
+
     @NotNull
     @Min(0)
     private Double valor;
@@ -43,6 +45,9 @@ public class Movimentacao {
         this.tipo = tipo;
         this.descricao=descricao;
         this.valor=valor;
+    }
+
+    public Movimentacao(LocalDate data, String tipo, String descricao) {
     }
 
 

@@ -31,6 +31,10 @@
     <span th:if="${#fields.hasErrors('valor')}" th:errors="*{valor}" class="text-danger"></span>
     <input type="text" th:field="*{valor}" placeholder="Valor" class="form-control mb-4 col-4">
 
+    <select th:field="*{caixa}" class="form-control mb-4 col-4">
+      <option th:each="caixa: ${caixas}" th:value="${caixa.id}" th:text="${caixa.descricao}"></option>
+    </select>
+
 
 
 

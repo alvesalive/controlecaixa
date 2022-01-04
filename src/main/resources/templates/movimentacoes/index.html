@@ -19,7 +19,7 @@
 <div class="container my-2">
   <a th:href="@{/movimentacoes/nova}" class="btn btn-primary btn-sm mb-3">Nova Movimentação</a>
   <h1>Movimentações</h1>
-  <table border="1" class="table table-striped table-responsive-md">
+  <table  class="table table-striped table-responsive-md">
     <thead>
     <tr>
       <th>Descrição</th>
@@ -35,6 +35,7 @@
       <td th:text="${movimentacoes.data}"></td>
       <td th:text="${movimentacoes.tipo}"></td>
       <td th:text="${movimentacoes.valor}"></td>
+      <td th:text="${movimentacoes.caixa.descricao}"></td>
       <td>
         <a th:href="@{/movimentacoes/{id}(id=${movimentacoes.id})}" class="btn btn-primary">Editar </a>
         <a th:href="@{/movimentacoes/apagar/{id}(id=${movimentacoes.id})}" class="btn btn-danger"> Apagar </a>
