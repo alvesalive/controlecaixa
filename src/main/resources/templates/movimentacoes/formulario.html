@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sistema de Controle de Caixa</title>
+
+
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha385-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous">
+
+</head>
+<body>
+
+
+<div class="container my-2">
+  <h1>Sistema de Controle de Caixa</h1>
+  <hr>
+  <h2>Movimentação</h2>
+  <form action="#" th:action="@{/movimentacoes/salvar}" th:object="${movimentacao}" method="POST">
+    <input type="hidden" id="id" th:field="*{id}">
+
+    <!-- <span th:if="${#fields.hasErrors('nome')}" th:errors="*{name}" class="text-danger"></span> -->
+    <input type="text" th:field="*{descricao}" placeholder="Descricao" class="form-control mb-4 col-4">
+    <input type="date" th:field="*{data}" placeholder="Data" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{tipo}" placeholder="Tipo" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{valor}" placeholder="Valor" class="form-control mb-4 col-4">
+
+
+
+
+    <button type="submit" class="btn btn-info col-2">Salvar</button>
+  </form>
+  <hr>
+  <a th:href="@{/movimentacoes}">Voltar para lista de movimentações</a>
+</div>
+</body>
+</html>
