@@ -20,91 +20,117 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"  >Ano</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#one">2020</a>
-                <a class="dropdown-item" href="#two">2021</a>
+                <a class="dropdown-item" href="#2020">2020</a>
+                <a class="dropdown-item" href="#2021">2021</a>
                 <div role="separator" class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#three">2022</a>
+                <a class="dropdown-item" href="#2022">2022</a>
             </div>
+        </li>
+        <li>
+            <a th:href="@{/caixas/}" class="btn btn-info btn-sm" role="button">Contas</a>
+        </li>
+        <li>
+            <a th:href="@{/movimentacoes/}" class="btn btn-info btn-sm" role="button">Movimentações</a>
         </li>
     </ul>
 
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link" href="#">Jan</a>
+            <a class="nav-link" href="#mes/1">Jan</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Fev</a>
+            <a class="nav-link" href="#mes/2">Fev</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Mar</a>
+            <a class="nav-link" href="#mes/3">Mar</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Abr</a>
+            <a class="nav-link" href="#mes/4">Abr</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Maio</a>
+            <a class="nav-link" href="#mes/5">Maio</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Jun</a>
+            <a class="nav-link" href="#mes/6">Jun</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Jul</a>
+            <a class="nav-link" href="#mes/7">Jul</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Ago</a>
+            <a class="nav-link" href="#mes/8">Ago</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Set</a>
+            <a class="nav-link" href="#mes/9">Set</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Out</a>
+            <a class="nav-link" href="#mes/10">Out</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Nov</a>
+            <a class="nav-link" href="#mes/11">Nov</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Dez</a>
+            <a class="nav-link" href="#mes/12">Dez</a>
         </li>
         <li class="nav-item">
-            <a th:href="@{/caixas/nova}" class="btn btn-primary btn-sm mb-3">+ Conta</a>
+            <a th:href="@{/caixas/nova}" class="btn btn-secondary btn-sm" role="button">+ Conta</a>
         </li>
+
         <li class="nav-item">
-            <a class="nav-link" href="#"></a>
-        </li>
-        <li class="nav-item">
-            <a  th:href="@{/movimentacoes/nova}" class="btn btn-primary btn-sm mb-3"> + Movimentação</a>
+            <a  th:href="@{/movimentacoes/nova}" class="btn btn-secondary btn-sm" role="button"> + Movimentação</a>
         </li>
 
 
     </ul>
 </nav>
 
-<div class="container my-2">
 
-    <h3>Sistema de Controle de Caixa</h3>
+
+
+<div class="container my-2">
+    <h1>Sistema de Controle de Caixa</h1>
+
+    <select th:field="*{caixas}" class="form-control mb-4 col-4">
+        <option th:each="caixa: ${caixas}" th:value="${caixa.id}" th:text="${caixa.descricao}"></option>
+    </select>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Entradas e Saídas do Mês</h5>
+                    <p class="card-text">Entradas</p>
+                    <p class="card-text">Saídas</p>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Saldo R$</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Balanço Geral</h5>
+                    <p class="card-text">Entradas</p>
+                    <p class="card-text">Saídas</p>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Saldo R$</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Movimentos do Mês</h3>
 
     <table  class="table table-striped table-responsive-md">
         <thead>
         <tr>
             <th>Descrição</th>
-            <th>Data</th>
-            <th>Tipo</th>
             <th>Valor</th>
-            <th>Ações</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="movimentacoes : ${listaMovimentacoes}">
             <td th:text="${movimentacoes.descricao}"></td>
-            <td th:text="${movimentacoes.data}"></td>
-            <td th:text="${movimentacoes.tipo}"></td>
             <td th:text="${movimentacoes.valor}"></td>
-            <td th:text="${movimentacoes.caixa.descricao}"></td>
-            <td>
-                <a th:href="@{/movimentacoes/{id}(id=${movimentacoes.id})}" class="btn btn-primary">Editar </a>
-                <a th:href="@{/movimentacoes/apagar/{id}(id=${movimentacoes.id})}" class="btn btn-danger"> Apagar </a>
-            </td>
-
 
         </tr>
         </tbody>
