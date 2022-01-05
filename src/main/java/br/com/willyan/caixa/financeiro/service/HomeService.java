@@ -50,7 +50,6 @@ public class HomeService {
         return valores;
     }
 
-
     //TODO - TO FIX <------------------------------------
     public Number[] entradaSaidaMesAtual() {
         Number[] valores = new Number[3];
@@ -66,7 +65,6 @@ public class HomeService {
          * */
 
         List<Movimentacao> movimentacaoList = new ArrayList<>(findMovimentacao());
-
         movimentacaoList.stream().forEach(
                 movimentacao ->
                 {
@@ -80,6 +78,8 @@ public class HomeService {
         valores[2] = valores[0].doubleValue() - valores[1].doubleValue();
         return valores;
     }
+
+
 
 
     //TODO implementar find1
