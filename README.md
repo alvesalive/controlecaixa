@@ -25,13 +25,13 @@
 - Thymeleaf
 - Spring Validation
 - Lombok
-- 
+
 ## "Front"
 - Bootstrap
 
 ## Database
 - MySQL
 - H2
-
+</br>
 
 <em> * doing</em>
