@@ -31,6 +31,8 @@ public class HomeController {
     public String movimentacaoes(Model model){
         model.addAttribute("listaMovimentacoes", homeService.findMovimentacao());
         model.addAttribute("caixas", caixaRepository.findAll());
+        model.addAttribute("entrSaid", homeService.entradaSaidaMesAtual());
+        model.addAttribute("balGeral", homeService.balancoGeral());
         return "index";
     }
 

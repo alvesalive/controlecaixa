@@ -20,10 +20,10 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"  >Ano</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#2020">2020</a>
-                <a class="dropdown-item" href="#2021">2021</a>
+                <a class="dropdown-item" href="#ano/2020">2020</a>
+                <a class="dropdown-item" href="#ano/2021">2021</a>
                 <div role="separator" class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#2022">2022</a>
+                <a class="dropdown-item" href="#ano/2022">2022</a>
             </div>
         </li>
         <li>
@@ -98,10 +98,11 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Entradas e Saídas do Mês</h5>
-                    <p class="card-text">Entradas</p>
-                    <p class="card-text">Saídas</p>
+                    <p class="card-text">Entradas  <td th:text="${entrSaid[0]}"></td> </p>
+
+                    <p class="card-text">Saídas <td th:text="${entrSaid[1]}"></td> </p>
                     <div role="separator" class="dropdown-divider"></div>
-                    <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Saldo R$</a>
+                    <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Saldo R$ <td th:text="${entrSaid[2]}"></td></a>
                 </div>
             </div>
         </div>
@@ -109,10 +110,10 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Balanço Geral</h5>
-                    <p class="card-text">Entradas</p>
-                    <p class="card-text">Saídas</p>
+                    <p class="card-text">Entradas <td th:text="${balGeral[0]}"></td></p>
+                    <p class="card-text">Saídas <td th:text="${balGeral[1]}"></td></p>
                     <div role="separator" class="dropdown-divider"></div>
-                    <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Saldo R$</a>
+                    <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Saldo R$ <td th:text="${balGeral[2]}"></td></a>
                 </div>
             </div>
         </div>
