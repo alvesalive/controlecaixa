@@ -3,6 +3,8 @@ package br.com.willyan.caixa.financeiro.service;
 import br.com.willyan.caixa.financeiro.model.Movimentacao;
 import br.com.willyan.caixa.financeiro.repository.CaixaRepository;
 import br.com.willyan.caixa.financeiro.repository.MovimentacaoRepository;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +13,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Getter
+@Setter
 public class HomeService {
+
+    private Long ano;
+    private Long mes;
+    private String caixa;
+
 
     @Autowired
     private CaixaRepository caixaRepository;
@@ -50,7 +59,7 @@ public class HomeService {
         return valores;
     }
 
-    //TODO - TO FIX <------------------------------------
+    // TODO - FIX <------------------------------------
     public Number[] entradaSaidaMesAtual() {
         Number[] valores = new Number[3];
 
@@ -59,10 +68,7 @@ public class HomeService {
             Double saidas = Double.valueOf(0);
         };
 
-        /*
-         * ATENÇÃO
-         * popular com metodo correto (find1, 2 ou 3)
-         * */
+        /** ATENÇÃO : popular com metodo correto (find1, 2 ou 3)  * */
 
         List<Movimentacao> movimentacaoList = new ArrayList<>(findMovimentacao());
         movimentacaoList.stream().forEach(
@@ -82,36 +88,33 @@ public class HomeService {
 
 
 
-    //TODO implementar find1
-    public List<Optional<Movimentacao>> findMovimentacaoByAno(long ano) {
-        List<Optional<Movimentacao>> movimentacaoList = new ArrayList<>();
-        if (movimentacaoList.isEmpty()) {
-            return new ArrayList<>();
-        }
-        //movimentacaoList.add(movimentacaoRepository.findBy( /* Ano do Parametro + Mes Corrente + Caixa atual */ ));
-        return movimentacaoList;
+    // TODO implementar find1
+    public List<Movimentacao> findMovimentacaoByAno(long ano) {
+
+        /* Ano do parametro + Caixa Atual + mes atual */
+        //return movimentacaoRepository.findMovimentacaoByData_YearAndData_MonthAndCaixa(ano, mes, caixa);
+
+        return new ArrayList<>();
     }
 
 
-    //TODO implementar find2
+    // TODO implementar find2
     public List<Optional<Movimentacao>> findMovimentacaoByMes(long mes) {
-        List<Optional<Movimentacao>> movimentacaoList = new ArrayList<>();
-        if (movimentacaoList.isEmpty()) {
-            return new ArrayList<>();
-        }
-        //movimentacaoList.add(movimentacaoRepository.findBy( /* Ano Atual + Caixa Atual + Movimentacoes com Mes do parametro / ));
-        return movimentacaoList;
+
+        /* Ano Atual + Caixa Atual + Movimentacoes com Mes do parametro */
+        //return movimentacaoRepository.findMovimentacaoByData_YearAndData_MonthAndCaixa(ano, mes, caixa);
+
+         return new ArrayList<>();
     }
 
 
-    //TODO implementar find3
+    // TODO implementar find3
     public List<Optional<Movimentacao>> findMovimentacaoByCaixa(long caixaId) {
-        List<Optional<Movimentacao>> movimentacaoList = new ArrayList<>();
-        if (movimentacaoList.isEmpty()) {
-            return new ArrayList<>();
-        }
-        //movimentacaoList.add(movimentacaoRepository.findBy( /* Ano corrente + Mes Corrente + Movimentacoes com caixa = caixaID */ ));
-        return movimentacaoList;
+
+        /* Ano corrente + Mes Corrente + Movimentacoes com caixa = caixaID */
+        //return movimentacaoRepository.findMovimentacaoByData_YearAndData_MonthAndCaixa(ano, mes, caixa);
+
+        return new ArrayList<>();
     }
 
 }

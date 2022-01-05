@@ -12,5 +12,8 @@ import java.util.List;
 public interface MovimentacaoRepository extends JpaRepository<Movimentacao, Long> {
 
 
+//List<Movimentacao> findMovimentacaoByData_YearAndData_MonthAndCaixa(Long ano, long mes, String caixa);
+
+
 
 }

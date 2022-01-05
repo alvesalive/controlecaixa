@@ -40,12 +40,7 @@ public class HomeController {
 
     @GetMapping ("/mes/{ano}")
     public String findByAno(@PathVariable long ano, Model model){
-        //Optional<Movimentacao> movimentacaoOptional = movimentacaoRepository.findById(ano);
-//        List<Movimentacao> movimentacaoOptional = movimentacaoRepository.findAll();
-//        if (movimentacaoOptional.isEmpty()){
-//            throw new IllegalArgumentException("sem movimentação.");
-//        }
-//        model.addAttribute("movimentacao", movimentacaoOptional.add(0,);
+        model.addAttribute("listaMovimentacoes");
 
         return "index";
 
