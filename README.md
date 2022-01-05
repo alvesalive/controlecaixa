@@ -30,8 +30,8 @@
 - Bootstrap
 
 ## Database
+- MySQL
 - H2
-- *Mysql
 
 
 <em> * doing</em>
