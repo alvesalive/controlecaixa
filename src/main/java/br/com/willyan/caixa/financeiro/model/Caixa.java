@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Objects;
 
 
@@ -17,9 +18,13 @@ import java.util.Objects;
 @Getter
 @Setter
 public class Caixa {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+
 
     @NotBlank(message = "Descrição não pode ser vazia")
     private String descricao;

@@ -4,6 +4,7 @@ import br.com.willyan.caixa.financeiro.model.Caixa;
 import br.com.willyan.caixa.financeiro.model.Movimentacao;
 import br.com.willyan.caixa.financeiro.repository.CaixaRepository;
 import br.com.willyan.caixa.financeiro.repository.MovimentacaoRepository;
+import br.com.willyan.caixa.financeiro.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,19 +24,17 @@ public class HomeController {
     @Autowired
     private CaixaRepository caixaRepository;
 
+    @Autowired
+    private HomeService homeService;
+
     @GetMapping("/")
     public String movimentacaoes(Model model){
-        model.addAttribute("listaMovimentacoes", movimentacaoRepository.findAll());
+        model.addAttribute("listaMovimentacoes", homeService.findMovimentacao());
         model.addAttribute("caixas", caixaRepository.findAll());
         return "index";
     }
 
-    //TODO FIX
-//    @GetMapping("/find")
-//    public String movJan(Model model){
-//        model.addAttribute("listaMovimentacoes", movimentacaoRepository.findByData());
-//        return "index";
-//    }
+
 
     @GetMapping ("/mes/{ano}")
     public String findByAno(@PathVariable long ano, Model model){
